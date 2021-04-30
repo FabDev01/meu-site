@@ -1,8 +1,27 @@
 AOS.init();
 
+let redirecionamento = document
+  .getElementById("curriculo")
+  .addEventListener("click", redirecCv);
+
+let sendMsm = document
+  .getElementById("whatsApp")
+  .addEventListener("click", sendWa);
+function redirecCv() {
+  window.open(
+    "https://drive.google.com/file/d/1psKHPQnKChmuUK4Jbp0pW7G5EbTMNYSG/view?usp=sharing"
+  );
+}
+
 function sendWa() {
   let message = document.getElementById("message").value;
-  window.open("https://wa.me/5521995734579?&text=".concat(message));
+  if (message === "") {
+    document.getElementById("error").innerHTML =
+      "<b>*Favor prencher o campo abaixo*</b>";
+  } else {
+    document.getElementById("error").innerHTML = "";
+    window.open("https://wa.me/5521995734579?&text=".concat(message));
+  }
 }
 
 const menu = document.querySelector(".menu");
